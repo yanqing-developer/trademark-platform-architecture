@@ -33,24 +33,24 @@ pipeline, and backend API design.
 ```mermaid
 flowchart LR
     subgraph Legacy[Legacy Systems]
-        L1[Legacy DB dumps\n(CSV / XLS / Custom)]
-        L2[Scanned documents\n(File shares)]
+        L1[Legacy DB dumps (CSV / XLS / Custom)]
+        L2[Scanned documents (File shares)]
     end
 
     subgraph ETL[Migration & ETL Layer]
-        C[Cleaning scripts\n(Python)]
+        C[Cleaning scripts (Python)]
         V[Validation rules]
         B[Batch loader\n(Celery workers)]
     end
 
     subgraph Core[Core Application Layer]
-        D[PostgreSQL\nPrimary DB]
-        SVC[Django app\nBack-office UI]
-        API[FastAPI\nPublic/Internal APIs]
+        D[PostgreSQL Primary DB]
+        SVC[Django app Back-office UI]
+        API[FastAPI Public/Internal APIs]
     end
 
     subgraph Infra[Infrastructure]
-        OSS[Object Storage\n(Alibaba OSS)]
+        OSS[Object Storage (Alibaba OSS)]
         MQ[Message Queue]
         MON[Monitoring & Alerts]
     end
