@@ -31,25 +31,25 @@ pipeline, and backend API design.
 ## 🧱 High-Level Architecture
 
 ```mermaid
-flowchart LR
-    subgraph Legacy[Legacy Systems]
+graph LR
+    subgraph Legacy Systems
         L1[Legacy DB dumps (CSV / XLS / Custom)]
         L2[Scanned documents (File shares)]
     end
 
-    subgraph ETL[Migration & ETL Layer]
+    subgraph Migration & ETL Layer
         C[Cleaning scripts (Python)]
         V[Validation rules]
-        B[Batch loader\n(Celery workers)]
+        B[Batch loader<br/>(Celery workers)]
     end
 
-    subgraph Core[Core Application Layer]
+    subgraph Core Application Layer
         D[PostgreSQL Primary DB]
         SVC[Django app Back-office UI]
         API[FastAPI Public/Internal APIs]
     end
 
-    subgraph Infra[Infrastructure]
+    subgraph Infrastructure
         OSS[Object Storage (Alibaba OSS)]
         MQ[Message Queue]
         MON[Monitoring & Alerts]
@@ -63,5 +63,5 @@ flowchart LR
 
     SVC --> MQ --> MON
     API --> MQ
-```
+
 
