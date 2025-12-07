@@ -63,4 +63,5 @@ flowchart LR
 
     SVC --> MQ --> MON
     API --> MQ
+```
 
